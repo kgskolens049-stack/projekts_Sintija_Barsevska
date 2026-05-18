@@ -1,4 +1,7 @@
+import sqlite3
 from datetime import datetime
+sqlite3.Connection("db.projekts.db")
+import random
  #datu strukstūras
 class Klients:
     def __init__(self, vards, rindas_numurs):
@@ -55,11 +58,13 @@ def info_ekrana():
     return info
 
 #Pievienojam klientus rindai
-pievienot_rindai ("Līga")
-pievienot_rindai("Marta")
+pievienot_rindai=input("Ievadiet vārdu: ")
 
 #Aizņemam kabīni
-aiznemt_kabini(2, "Līga")
+aiznemt_kabini(random, pievienot_rindai)
 
 #Izvadām
 print(info_ekrana())
+datne=open('veikals.txt',"w",encoding="utf-8")
+datne.write(info_ekrana())
+datne.close()
